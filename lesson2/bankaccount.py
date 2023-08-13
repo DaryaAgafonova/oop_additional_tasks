@@ -11,8 +11,32 @@
 """
 
 
-class BankAccount:
-    pass
+class BankAccount():
+
+    def __init__(self, balance):
+        """ конструктор, принимающий начальный баланс счета """
+        self.__balance = balance
+
+    @property
+    def balance(self) -> int:
+        """ свойство, которое возвращает текущий баланс счета """
+        return self.__balance
+
+    def deposit(self, amout) -> int:
+        """ метод, который позволяет внести деньги на счет """
+        self.__balance += amout
+        return self.__balance
+
+    def withdraw(self, amout) -> int:
+        """ метод, который позволяет снять деньги со счета """
+        self.__balance -= amout
+        return self.__balance
+
+    def close(self) -> int:
+        """ метод, который закрывает счет и возвращает оставшиеся на нем деньги """
+        self.__balance -= self.__balance
+        return self.__balance
+
 
 
 account = BankAccount(1000)
