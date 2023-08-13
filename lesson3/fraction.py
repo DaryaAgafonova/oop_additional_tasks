@@ -26,7 +26,7 @@ class Fraction:
         return f"{self.numerator}/{self.denominator}"
 
     def __add__(self, other):
-        """ магический метод, который позволяет складывать дроби и возвращаeт сумму """
+        """ магический метод, который позволяет складывать дроби и возвращать новую дробь """
         return self.numerator/self.denominator + other.numerator/other.denominator
 
 
@@ -36,4 +36,4 @@ print(str(fraction1))  # 1/2
 
 fraction2 = Fraction(3, 4)
 fraction3 = fraction1 + fraction2
-print(fraction3)  # 1.25
+print(fraction3)  # 5/4
