@@ -8,10 +8,39 @@
 - is_square(width, height): статический метод, принимающий ширину и высоту прямоугольника и возвращающий True,
 если это квадрат, и False в противном случае
 """
-
+import math
 
 class Rectangle:
-    pass
+
+    def __init__(self, width, height):
+        """ конструктор, принимающий ширину и высоту прямоугольника """
+        self.width = width
+        self.height = height
+
+    def area(self):
+        """ метод, возвращающий площадь прямоугольника """
+        return self.height * self.width
+
+    def perimeter(self):
+        """ метод, возвращающий периметр прямоугольника """
+        return (self.height + self.width) * 2
+
+    @classmethod
+    def from_diagonal(cls, diagonal, aspect_ratio):
+        """ класс-метод, принимающий диагональ прямоугольника и соотношение сторон и возвращающий объект класса Rectangle """
+        side = math.sqrt((diagonal * diagonal) - (aspect_ratio * aspect_ratio))
+        return cls(side, aspect_ratio)
+
+    @staticmethod
+    def is_square(width, height):
+        """ статический метод, принимающий ширину и высоту прямоугольника и возвращающий True,
+если это квадрат, и False в противном случае """
+        if width == height:
+            return True
+        else:
+            return False
+
+
 
 
 rectangle = Rectangle(4, 5)
