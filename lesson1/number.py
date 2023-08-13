@@ -15,29 +15,25 @@
 class Number:
 
     def __init__(self, value):
-
+        """ инициализация атрибутов класса """
         self.value = value
 
     def get(self):
-
+        """ возвращает текущее value """
         return self.value
 
     def add(self, meaning):
-
+        """ добавляет указанное число к value """
         self.meaning = meaning
-
-        addition = self.value + self.meaning
-
-        return addition
+        self.value += self.meaning
+        return self.value
 
 
     def substract(self, meaning):
-
+        """ вычитает указанное число из value """
         self.meaning = meaning
-
-        sub = self.value - self.meaning
-
-        return sub
+        self.value -= self.meaning
+        return self.value
 
 
 n = Number(7)

@@ -8,7 +8,8 @@
 
 
 class Timer:
-    pass
+
+    def
 
 
 with Timer() as timer:

@@ -19,7 +19,7 @@ class Person:
 
     def display(self):
         """ метод, выводящий на экран имя и возраст человека """
-        return f"Имя {self.name}. Возраст {self.age}."
+        return f"{self.name.title()} is {self.age} years {self.age}."
 
     @classmethod
     def from_birth_year(cls, name, birth_year):
@@ -43,7 +43,7 @@ person1 = Person("John", 28)
 print(person1.display())  # John is 28 years 28.
 
 person2 = Person.from_birth_year("Mike", 1995)
-print(person2.display())  # Mike is 26 years 28.
+print(person2.display())  # Mike is 28 years 28.
 
 print(Person.is_adult(20))  # True
 print(Person.is_adult(15))  # False
