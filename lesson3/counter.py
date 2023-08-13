@@ -8,7 +8,19 @@
 
 
 class Counter:
-    pass
+
+    def __init__(self, count=0):
+        """ конструктор, создающий счетчик и устанавливающий его значение в 0 """
+        self.count = count
+
+    def __call__(self):
+        """ магический метод, который позволяет использовать объект класса Counter как функцию, возвращающую текущее значение счетчика """
+        return self.count
+
+    def increment(self):
+        """ метод, увеличивающий значение счетчика на 1 """
+        self.count += 1
+        return self.count
 
 
 counter = Counter()

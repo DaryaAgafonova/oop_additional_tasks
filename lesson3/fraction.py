@@ -10,7 +10,24 @@
 
 
 class Fraction:
-    pass
+
+    def __init__(self, numerator, denominator):
+        """ конструктор, принимающий числитель и знаменатель дроби """
+        self.numerator = numerator
+        self.denominator = denominator
+
+    def __repr__(self):
+        """ магический метод, возвращающий строковое представление дроби,
+которое можно использовать для создания нового объекта класса Fraction """
+        return f"{self.__class__.__name__}{(self.numerator, self.denominator)}"
+
+    def __str__(self):
+        """ магический метод, возвращающий строковое представление дроби """
+        return f"{self.numerator}/{self.denominator}"
+
+    def __add__(self, other):
+        """ магический метод, который позволяет складывать дроби и возвращаeт сумму """
+        return self.numerator/self.denominator + other.numerator/other.denominator
 
 
 fraction1 = Fraction(1, 2)
@@ -19,4 +36,4 @@ print(str(fraction1))  # 1/2
 
 fraction2 = Fraction(3, 4)
 fraction3 = fraction1 + fraction2
-print(fraction3)  # 5/4
+print(fraction3)  # 1.25
