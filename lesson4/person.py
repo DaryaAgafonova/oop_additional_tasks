@@ -13,7 +13,32 @@
 
 
 class Person:
-    pass
+    """ класс Person, представляющий человека """
+
+    def __init__(self, name, age):
+        """ конструктор, принимающий имя человека и его возраст """
+        self.name= name
+        self.age = age
+
+    def get_name(self):
+        """ метод, который возвращает имя человека """
+        return self.name
+
+    def get_age(self):
+        """ метод, который возвращает возраст человека """
+        return self.age
+
+class Student(Person):
+    """ класс Student, наследующийся от класса Person, представляющий студента """
+
+    def __init__(self, name, age, major):
+        """ конструктор, принимающий имя студента, его возраст и основной предмет """
+        super().__init__(name, age)
+        self.major = major
+
+    def get_major(self):
+        """ метод, который возвращает основной предмет студента """
+        return self.major
 
 
 person = Person("Иван", 25)

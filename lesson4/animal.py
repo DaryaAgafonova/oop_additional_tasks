@@ -14,15 +14,38 @@
 """
 
 
-class Aminal:
-    pass
+class Animal:
+    """ класс Animal, представляющий животное """
+
+    def __init__(self, name):
+        """ конструктор, принимающий имя животного """
+        self.name = name
+
+    def speak(self):
+        """ метод, который выводит звук, издаваемый собакой """
+        return "?"
+
+class Dog(Animal):
+    """ класс Dog, наследующийся от класса Animal, представляющий собаку """
+
+    def speak(self):
+        """ метод, который выводит звук, издаваемый собакой """
+        return "Woof!"
+
+
+class Cat(Animal):
+    """ класс Cat, наследующийся от класса Animal, представляющий кошку """
+
+    def speak(self):
+        """ метод, который выводит звук, издаваемый кошкой """
+        return "Meow!"
 
 
 animal = Animal("Animal")
-animal.speak()  # ?
+print(animal.speak())  # ?
 
 dog = Dog("Dog")
-dog.speak()  # Woof!
+print(dog.speak())  # Woof!
 
 cat = Cat("Cat")
-cat.speak()  # Meow!
+print(cat.speak())  # Meow!

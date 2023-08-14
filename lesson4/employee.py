@@ -12,7 +12,28 @@
 
 
 class Employee:
-    pass
+    """ класс Employee, представляющий сотрудника, имеющий следующие методы """
+
+    def __init__(self, name, salary):
+        """ конструктор, принимающий имя сотрудника и его зарплату """
+        self.name = name
+        self.salary = salary
+
+    def get_salary(self):
+        """ метод, который возвращает зарплату сотрудника """
+        return self.salary
+
+class Manager(Employee):
+    """ класс Manager, наследующийся от класса Employee, представляющий менеджера, имеющий следующие методы """
+
+    def __init__(self, name, salary, bonus):
+        """ конструктор, принимающий имя менеджера, его зарплату и бонус """
+        super().__init__(name, salary)
+        self.bonus = bonus
+
+    def get_salary(self):
+        """ метод, который возвращает зарплату менеджера плюс его бонус """
+        return self.salary + self.bonus
 
 
 employee = Employee("John", 5000)

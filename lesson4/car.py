@@ -14,7 +14,37 @@
 
 
 class Car:
-    pass
+    """ класс Car, представляющий автомобиль """
+
+    def __init__(self, make, model, year):
+        """ конструктор, принимающий марку автомобиля, модель и год выпуска """
+        self.make = make
+        self.model = model
+        self.year = year
+
+    def get_make(self):
+        """ метод, который возвращает марку автомобиля """
+        return self.make
+
+    def get_model(self):
+        """ метод, который возвращает модель автомобиля """
+        return self.model
+
+    def get_year(self):
+        """ метод, который возвращает год выпуска автомобиля """
+        return self.year
+
+class ElectricCar(Car):
+    """ класс ElectricCar, наследующийся от класса Car, представляющий электромобиль """
+
+    def __init__(self, make, model, year, battery_size):
+        """ конструктор, принимающий марку электромобиля, модель, год выпуска и размер батареи """
+        super().__init__(make, model, year)
+        self.battery_size = battery_size
+
+    def get_battery_size(self):
+        """ метод, который возвращает размер батареи электромобиля """
+        return self.battery_size
 
 
 car = Car("Tesla", "Model S", 2022)
