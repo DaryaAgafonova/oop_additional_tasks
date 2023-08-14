@@ -19,17 +19,18 @@ class Rectangle:
 
     def area(self):
         """ метод, возвращающий площадь прямоугольника """
-        return self.height * self.width
+        return round(self.height * self.width, 2)
 
     def perimeter(self):
         """ метод, возвращающий периметр прямоугольника """
-        return (self.height + self.width) * 2
+        return round((self.height + self.width) * 2, 2)
 
     @classmethod
     def from_diagonal(cls, diagonal, aspect_ratio):
         """ класс-метод, принимающий диагональ прямоугольника и соотношение сторон и возвращающий объект класса Rectangle """
-        side = math.sqrt((diagonal * diagonal) - (aspect_ratio * aspect_ratio))
-        return cls(side, aspect_ratio)
+        height = (diagonal ** 2 / (aspect_ratio ** 2 + 1)) ** 0.5
+        width = aspect_ratio * height
+        return cls(height, width)
 
     @staticmethod
     def is_square(width, height):

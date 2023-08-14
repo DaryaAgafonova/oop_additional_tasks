@@ -7,7 +7,7 @@
 - __str__(self): магический метод, возвращающий строковое представление дроби;
 - __add__(self, other): магический метод, который позволяет складывать дроби и возвращать новую дробь.
 """
-
+import math
 
 class Fraction:
 
@@ -26,8 +26,9 @@ class Fraction:
         return f"{self.numerator}/{self.denominator}"
 
     def __add__(self, other):
-        """ магический метод, который позволяет складывать дроби и возвращать новую дробь """
+        """ магический метод, который позволяет складывать дроби и возвращать сумму """
         return self.numerator/self.denominator + other.numerator/other.denominator
+        return (a * b) // math.gcd(a, b)
 
 
 fraction1 = Fraction(1, 2)
@@ -36,4 +37,4 @@ print(str(fraction1))  # 1/2
 
 fraction2 = Fraction(3, 4)
 fraction3 = fraction1 + fraction2
-print(fraction3)  # 5/4
+print(fraction3)  # 1.25

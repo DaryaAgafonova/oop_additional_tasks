@@ -19,6 +19,9 @@ class User:
         """ конструктор, принимающий имя пользователя и пароль """
         self.__name = name
         self.__password = password
+        is_admin = False
+        self._is_admin = is_admin
+        self._is_login_in = None
 
     @property
     def name(self):
@@ -30,30 +33,29 @@ class User:
         """ свойство, которое возвращает пароль пользователя """
         return self.__password
 
+    @property
+    def is_admin(self):
+        return self._is_admin
+
     @password.setter
     def password(self, password):
         """ свойство, которое позволяет установить или изменить пароль пользователя """
         self.__password = password
 
-    def is_admin(self):
-        """ свойство, которое возвращает, является ли пользователь администратором или нет """
-
-
-    def _is_admin(self):
-        """ свойство-помощник, которое определяет, является ли пользователь администратором или нет """
 
     def login(self, password):
         """ метод, который проверяет, соответствует ли введенный
         пароль паролю пользователя """
         if self.__password == password:
-            return True
+            self._is_login_in = True
+            print(True)
         else:
-            return False
+            print(False)
 
     def logout(self):
         """ метод, который выходит из аккаунта пользователя (устанавливает значение
         свойства _is_logged_in в False при условии, что пользователь залогинен)"""
-
+        self._is_login_in = False
 
 
 
@@ -62,13 +64,13 @@ class User:
 user1 = User("Alice", "qwerty")
 print(user1.name)  # Alice
 print(user1.password)  # qwerty
-#print(user1.is_admin)  # False
+print(user1.is_admin)  # False
 
 user1.password = "newpassword"
 print(user1.password)  # newpassword
 
-#user1._is_admin = True
-#print(user1.is_admin)  # True
+user1._is_admin = True
+print(user1.is_admin)  # True
 
 print(user1.login("newpassword")) # True
-#user1.logout()
+user1.logout()
